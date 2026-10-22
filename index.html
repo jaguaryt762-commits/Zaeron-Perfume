@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAERON | Unmistakably Yours</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#080808;color:#f5f0e6;font-family:Arial,sans-serif;line-height:1.6}
+    :root{--gold:#c9a45c;--black:#080808}
+    header{padding:24px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #282218}
+    .logo{color:var(--gold);font-family:Georgia,serif;font-size:28px;letter-spacing:5px}
+    nav a{color:#eee;text-decoration:none;margin-left:22px;font-size:13px}
+    nav a:hover{color:var(--gold)}
+    .hero{min-height:78vh;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:70px 10%;background:radial-gradient(ellipse at 75% 50%,#292015 0%,#080808 55%)}
+    .hero-text{max-width:550px}
+    .eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px}
+    h1{font-family:Georgia,serif;font-size:clamp(48px,8vw,92px);line-height:1.05;font-weight:400;margin:20px 0}
+    h1 span{color:var(--gold)}
+    p{color:#c8c2b7}
+    .hero p{max-width:420px;margin-bottom:28px}
+    .btn{display:inline-block;background:var(--gold);color:#080808;text-decoration:none;padding:13px 24px;font-size:12px;letter-spacing:2px;font-weight:bold;border:0;cursor:pointer}
+    .bottle{width:210px;height:300px;border:1px solid #8f713d;border-radius:25px 25px 15px 15px;background:linear-gradient(90deg,#111,#29251c,#090909);display:flex;align-items:center;justify-content:center;box-shadow:0 0 60px #c9a45c20;position:relative;margin:25px auto}
+    .bottle:before{content:"";position:absolute;top:-48px;width:65px;height:48px;background:linear-gradient(90deg,#8b6b31,#e3c77d,#8b6b31);border-radius:5px 5px 0 0}
+    .bottle-label{text-align:center;border:1px solid #9e7d40;padding:25px 12px;color:var(--gold);width:80%}
+    .bottle-label strong{display:block;font-family:Georgia,serif;font-size:25px;letter-spacing:3px}
+    .bottle-label small{letter-spacing:3px;font-size:9px}
+    section{padding:75px 10%;text-align:center}
+    h2{font-family:Georgia,serif;font-size:38px;font-weight:400;margin:12px 0 20px}
+    h2 span{color:var(--gold)}
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;margin-top:35px}
+    .product{border:1px solid #30291e;padding:28px 20px;background:#0d0c0a}
+    .product .bottle{transform:scale(.75);margin:-5px auto}
+    .product h3{font-family:Georgia,serif;color:var(--gold);font-size:23px;margin-top:10px}
+    .product p{font-size:14px;margin:10px 0 20px}
+    .story{background:#100e0b}
+    .story p{max-width:650px;margin:auto}
+    form{max-width:500px;margin:30px auto 0;text-align:left}
+    label{display:block;font-size:12px;color:var(--gold);margin:14px 0 6px}
+    input,textarea,select{width:100%;padding:13px;background:#111;border:1px solid #4a3b25;color:white;font:inherit}
+    textarea{min-height:90px}
+    form button{margin-top:20px;width:100%}
+    footer{text-align:center;padding:30px 15px;border-top:1px solid #29231a;color:#a99d88;font-size:12px}
+    footer strong{color:var(--gold);letter-spacing:3px}
+    @media(max-width:650px){header{flex-direction:column;gap:15px}nav a{margin:0 8px}.hero{flex-direction:column;text-align:center;padding:60px 7%}.hero p{margin-left:auto;margin-right:auto}.bottle{width:175px;height:250px}section{padding:55px 7%}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">ZAERON</div>
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#collection">COLLECTION</a>
+    <a href="#story">OUR STORY</a>
+    <a href="#order">ORDER</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="eyebrow">THE ART OF PERSONALITY</div>
+    <h1>Leave a<br><span>Signature.</span></h1>
+    <p>Discover a fragrance that speaks before you do. Refined scents, timeless character, and unmistakable presence.</p>
+    <a class="btn" href="#collection">DISCOVER AURA</a>
+  </div>
+  <div class="bottle">
+    <div class="bottle-label">
+      <strong>ZAERON</strong>
+      <small>AURA</small><br><br>
+      <small>EAU DE PARFUM</small>
+    </div>
+  </div>
+</section>
+
+<section id="collection">
+  <div class="eyebrow">THE COLLECTION</div>
+  <h2>Find Your <span>Signature</span></h2>
+  <p>Made for those who never need to announce their presence.</p>
+  <div class="products">
+    <article class="product">
+      <div class="bottle"><div class="bottle-label"><strong>ZAERON</strong><small>AURA</small></div></div>
+      <h3>AURA</h3>
+      <p>Dark oud, warm amber and rich woody notes. A bold, memorable character.</p>
+      <a class="btn" href="#order">ENQUIRE NOW</a>
+    </article>
+    <article class="product">
+      <div class="bottle"><div class="bottle-label"><strong>ZAERON</strong><small>NIOR</small></div></div>
+      <h3>NIOR LEGACY</h3>
+      <p>A future signature fragrance. Coming soon.</p>
+      <a class="btn" href="#order">GET UPDATES</a>
+    </article>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="eyebrow">THE ZAERON STANDARD</div>
+  <h2>Unmistakably <span>Yours.</span></h2>
+  <p>ZAERON is built around individuality, confidence and understated luxury. Every scent is an opportunity to make a lasting impression. Your presence. Your identity. Your signature.</p>
+</section>
+
+<section id="order">
+  <div class="eyebrow">YOUR SIGNATURE STARTS HERE</div>
+  <h2>Order <span>Enquiry</span></h2>
+  <p>Send your details through WhatsApp to enquire about availability and pricing.</p>
+  <form id="orderForm">
+    <label for="name">YOUR NAME</label>
+    <input id="name" required placeholder="Enter your name">
+    <label for="phone">PHONE NUMBER</label>
+    <input id="phone" required placeholder="03XXXXXXXXX">
+    <label for="product">FRAGRANCE</label>
+    <select id="product">
+      <option>AURA</option>
+      <option>NIOR LEGACY — Coming Soon</option>
+    </select>
+    <label for="quantity">QUANTITY</label>
+    <select id="quantity">
+      <option>1 bottle</option>
+      <option>2 bottles</option>
+      <option>3 bottles</option>
+      <option>4+ bottles</option>
+    </select>
+    <label for="address">DELIVERY ADDRESS / MESSAGE</label>
+    <textarea id="address" placeholder="Your city and delivery address"></textarea>
+    <button class="btn" type="submit">CONTINUE ON WHATSAPP</button>
+  </form>
+</section>
+</main>
+
+<footer>
+  <strong>ZAERON</strong>
+  <p>UNMISTAKABLY YOURS.</p>
+  <p>© 2026 ZAERON. All rights reserved.</p>
+</footer>
+
+<script>
+  // Replace this with your WhatsApp number including country code.
+  // Example: 923001234567 — no + sign, spaces, or leading 0.
+  const WHATSAPP_NUMBER = "923412454350";
+
+  document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (WHATSAPP_NUMBER.includes("X")) {
+      alert("Please add your WhatsApp number in the website code first.");
+      return;
+    }
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const product = document.getElementById("product").value;
+    const quantity = document.getElementById("quantity").value;
+    const address = document.getElementById("address").value.trim();
+
+    const message =
+      "ZAERON ORDER ENQUIRY%0A" +
+      "Name: " + encodeURIComponent(name) + "%0A" +
+      "Phone: " + encodeURIComponent(phone) + "%0A" +
+      "Fragrance: " + encodeURIComponent(product) + "%0A" +
+      "Quantity: " + encodeURIComponent(quantity) + "%0A" +
+      "Address/Message: " + encodeURIComponent(address);
+
+    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message, "_blank");
+  });
+</script>
+</body>
+</html>
