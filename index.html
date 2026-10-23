@@ -1,167 +1,848 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZAERON | Unmistakely Yours</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:#080808;color:#f5f0e6;font-family:Arial,sans-serif;line-height:1.6}
-    :root{--gold:#c9a45c;--black:#080808}
-    header{padding:24px 8%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #282218}
-    .logo{color:var(--gold);font-family:Georgia,serif;font-size:28px;letter-spacing:5px}
-    nav a{color:#eee;text-decoration:none;margin-left:22px;font-size:13px}
-    nav a:hover{color:var(--gold)}
-    .hero{min-height:78vh;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:70px 10%;background:radial-gradient(ellipse at 75% 50%,#292015 0%,#080808 55%)}
-    .hero-text{max-width:550px}
-    .eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px}
-    h1{font-family:Georgia,serif;font-size:clamp(48px,8vw,92px);line-height:1.05;font-weight:400;margin:20px 0}
-    h1 span{color:var(--gold)}
-    p{color:#c8c2b7}
-    .hero p{max-width:420px;margin-bottom:28px}
-    .btn{display:inline-block;background:var(--gold);color:#080808;text-decoration:none;padding:13px 24px;font-size:12px;letter-spacing:2px;font-weight:bold;border:0;cursor:pointer}
-    .bottle{width:210px;height:300px;border:1px solid #8f713d;border-radius:25px 25px 15px 15px;background:linear-gradient(90deg,#111,#29251c,#090909);display:flex;align-items:center;justify-content:center;box-shadow:0 0 60px #c9a45c20;position:relative;margin:25px auto}
-    .bottle:before{content:"";position:absolute;top:-48px;width:65px;height:48px;background:linear-gradient(90deg,#8b6b31,#e3c77d,#8b6b31);border-radius:5px 5px 0 0}
-    .bottle-label{text-align:center;border:1px solid #9e7d40;padding:25px 12px;color:var(--gold);width:80%}
-    .bottle-label strong{display:block;font-family:Georgia,serif;font-size:25px;letter-spacing:3px}
-    .bottle-label small{letter-spacing:3px;font-size:9px}
-    section{padding:75px 10%;text-align:center}
-    h2{font-family:Georgia,serif;font-size:38px;font-weight:400;margin:12px 0 20px}
-    h2 span{color:var(--gold)}
-    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;margin-top:35px}
-    .product{border:1px solid #30291e;padding:28px 20px;background:#0d0c0a}
-    .product .bottle{transform:scale(.75);margin:-5px auto}
-    .product h3{font-family:Georgia,serif;color:var(--gold);font-size:23px;margin-top:10px}
-    .product p{font-size:14px;margin:10px 0 20px}
-    .story{background:#100e0b}
-    .story p{max-width:650px;margin:auto}
-    form{max-width:500px;margin:30px auto 0;text-align:left}
-    label{display:block;font-size:12px;color:var(--gold);margin:14px 0 6px}
-    input,textarea,select{width:100%;padding:13px;background:#111;border:1px solid #4a3b25;color:white;font:inherit}
-    textarea{min-height:90px}
-    form button{margin-top:20px;width:100%}
-    footer{text-align:center;padding:30px 15px;border-top:1px solid #29231a;color:#a99d88;font-size:12px}
-    footer strong{color:var(--gold);letter-spacing:3px}
-    @media(max-width:650px){header{flex-direction:column;gap:15px}nav a{margin:0 8px}.hero{flex-direction:column;text-align:center;padding:60px 7%}.hero p{margin-left:auto;margin-right:auto}.bottle{width:175px;height:250px}section{padding:55px 7%}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ZAERON luxury fragrances. Discover AURA and the upcoming NIOR LEGACY.">
+<title>ZAERON | Luxury Fragrances</title>
+
+<style>
+:root{
+  --bg:#08090b;
+  --panel:#101114;
+  --gold:#c9a45c;
+  --silver:#d9dce1;
+  --muted:#a9abb2;
+  --line:#292a2f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:#f4f3ef;
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.7;
+  min-height:100vh;
+}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+::selection{background:#c9a45c55;color:white}
+
+/* Premium atmospheric background */
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 12% 15%,#31343b44,transparent 36%),
+    radial-gradient(ellipse at 88% 42%,#8c69251c,transparent 38%),
+    radial-gradient(ellipse at 50% 100%,#22252b44,transparent 42%),
+    linear-gradient(135deg,#08090b,#0c0d10 48%,#070708);
+}
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.12;
+  background-image:repeating-linear-gradient(
+    120deg,transparent 0,transparent 80px,#ffffff08 81px,transparent 82px
+  );
+}
+
+/* Header */
+.topbar{
+  height:76px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#090a0ced;
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid #c9a45c30;
+}
+.menu-toggle{
+  width:42px;height:42px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:5px;
+  background:transparent;border:1px solid #ffffff26;
+  color:var(--gold);
+}
+.menu-toggle span{width:19px;height:2px;background:currentColor}
+.logo{
+  font:27px Georgia,serif;
+  letter-spacing:5px;
+  color:var(--silver);
+  cursor:pointer;
+}
+.logo span{color:var(--gold)}
+.topbar-tagline{
+  margin-left:auto;
+  color:#a7a4a0;
+  font-size:9px;
+  letter-spacing:2.2px;
+}
+
+/* Sidebar */
+.sidebar{
+  position:fixed;top:0;bottom:0;left:0;
+  width:min(290px,85vw);
+  padding:28px 25px;
+  z-index:1200;
+  background:#0c0d10;
+  border-right:1px solid #c9a45c45;
+  transform:translateX(-105%);
+  transition:transform .3s ease;
+}
+.sidebar.open{transform:translateX(0)}
+.sidebar-head{
+  display:flex;align-items:center;
+  justify-content:space-between;margin-bottom:45px;
+}
+.sidebar .logo{font-size:23px}
+.close-menu{
+  width:36px;height:36px;
+  color:var(--gold);background:transparent;
+  border:1px solid #ffffff35;font-size:23px;
+}
+.sidebar nav{display:grid;gap:8px}
+.sidebar nav a{
+  padding:14px 8px;
+  border-bottom:1px solid var(--line);
+  color:#e6e4df;text-decoration:none;
+  font-size:12px;letter-spacing:2px;
+}
+.sidebar nav a:hover,.sidebar nav a.selected{color:var(--gold)}
+.sidebar-note{
+  position:absolute;bottom:28px;left:25px;
+  font-size:10px;letter-spacing:2px;color:#96969a;
+}
+.sidebar-note strong{
+  display:block;color:var(--gold);
+  font:20px Georgia,serif;letter-spacing:4px;
+}
+.scrim{
+  position:fixed;inset:0;z-index:1100;
+  background:#000b;opacity:0;visibility:hidden;
+  transition:opacity .3s;
+}
+.scrim.visible{opacity:1;visibility:visible}
+
+/* Page navigation */
+.page{display:none;min-height:72vh}
+.page.active{display:block;animation:pageIn .3s ease}
+@keyframes pageIn{
+  from{opacity:.45;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Buttons and typography */
+.eyebrow{
+  color:var(--gold);font-size:10px;
+  letter-spacing:3px;text-transform:uppercase;
+}
+h1{
+  font:400 clamp(44px,6vw,76px)/1.12 Georgia,serif;
+  margin:20px 0;
+}
+h1 span,h2 span{color:var(--gold)}
+h2{
+  font:400 clamp(30px,4vw,43px)/1.25 Georgia,serif;
+  margin:12px 0 18px;
+}
+p{color:var(--muted)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 20px;
+  background:var(--gold);color:#080808;
+  border:1px solid var(--gold);
+  font-size:10px;font-weight:bold;letter-spacing:1.5px;
+  text-decoration:none;transition:.2s;
+}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn-outline{background:transparent;color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:#080808}
+
+/* Home */
+.hero{
+  min-height:calc(82vh - 76px);
+  padding:65px 8%;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:45px;
+  background:
+    radial-gradient(ellipse at 72% 48%,#24262a88,transparent 48%),
+    radial-gradient(ellipse at 85% 70%,#8b69251b,transparent 35%);
+}
+.hero-text{max-width:540px}
+.hero-text p{max-width:435px;margin-bottom:28px;font-size:14px}
+.hero-visual{
+  min-width:0;
+  display:flex;flex-direction:column;
+  align-items:center;
+}
+.search-area{
+  width:100%;max-width:340px;
+  margin:0 0 4px auto;
+}
+.search-area label{
+  display:block;color:#b8b7b4;
+  font-size:9px;letter-spacing:2px;
+  margin-bottom:8px;
+}
+.search-box{
+  display:flex;align-items:center;
+  border:1px solid #77736b;
+  background:#0c0d0fcc;
+  box-shadow:0 8px 30px #0005;
+}
+.search-box input{
+  width:100%;min-width:0;
+  padding:13px 14px;
+  background:transparent;color:white;
+  border:0;outline:none;font-size:12px;
+}
+.search-box button{
+  flex-shrink:0;
+  width:47px;height:45px;
+  display:grid;place-items:center;
+  background:transparent;color:var(--gold);
+  border:0;border-left:1px solid #ffffff24;
+}
+.search-box button:hover{background:#c9a45c14}
+.search-hint{font-size:10px;margin-top:7px;color:#777982}
+
+/* SVG bottle artwork */
+.bottle-art{
+  display:block;
+  width:100%;max-width:330px;height:auto;
+  margin:20px auto;
+  filter:drop-shadow(0 20px 25px #000a);
+}
+.hero-visual .bottle-art{max-width:320px;margin:20px auto 0}
+.hero-luxury-image{
+  display:block;
+  width:100%;
+  max-width:650px;
+  height:auto;
+  margin:18px auto 0;
+  border:1px solid #c9a45c38;
+  box-shadow:0 24px 65px #000b, 0 0 45px #c9a45c12;
+  object-fit:cover;
+}
+
+.product-art{
+  min-height:235px;
+  display:flex;align-items:center;justify-content:center;
+}
+.product-art .bottle-art{max-width:220px;margin:0 auto}
+.detail-image{
+  padding:20px;
+  align-self:start;
+  background:radial-gradient(ellipse at center,#292b30,#101114 62%,transparent 100%);
+  border:1px solid #ffffff0b;
+}
+.detail-image.nior-bg{
+  background:radial-gradient(ellipse at center,#29251d,#101114 65%,transparent 100%);
+}
+
+/* Collection */
+.content{padding:65px 8%;text-align:center}
+.section-intro{max-width:620px;margin:0 auto}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;margin-top:38px;
+}
+.product{
+  padding:20px 18px 25px;
+  border:1px solid #ffffff17;
+  background:linear-gradient(145deg,#17181b,#0d0e10);
+  transition:transform .25s,border-color .25s;
+}
+.product:hover{transform:translateY(-4px);border-color:#c9a45c66}
+.product h3{font:25px Georgia,serif;color:var(--silver);margin:7px 0}
+.product .price{font-size:15px;color:var(--gold);font-weight:bold;margin:7px 0}
+.product p{font-size:12px;margin:10px 0 18px}
+.coming-label{
+  display:inline-block;
+  color:var(--gold);font-size:9px;
+  letter-spacing:2px;border:1px solid #c9a45c70;
+  padding:3px 9px;margin:3px 0 8px;
+}
+
+/* Product details page */
+.detail-wrap{max-width:1050px;margin:15px auto 0}
+.back-btn{margin-bottom:24px}
+.detail-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:42px;text-align:left;
+}
+.detail-copy{padding:8px 0}
+.detail-copy h2{margin:9px 0}
+.price-note{color:var(--gold);font-size:10px;letter-spacing:2px;margin:12px 0}
+.detail-price{font-size:22px;color:var(--silver);margin:10px 0 15px}
+.description{font-size:14px;line-height:1.8;margin:14px 0}
+.notes{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:15px 0;margin:17px 0;
+}
+.notes p{font-size:12px;margin:5px 0}
+.notes strong{color:var(--gold);font-size:9px;letter-spacing:1.5px}
+.detail-extra{font-size:12px;line-height:1.8}
+.order-box{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.order-box h3{font:25px Georgia,serif;color:var(--gold);margin-bottom:5px}
+.order-box>p{font-size:12px}
+.form-label{
+  display:block;font-size:9px;
+  letter-spacing:1.5px;color:var(--gold);
+  margin:13px 0 5px;
+}
+.order-box input,.order-box textarea{
+  width:100%;padding:12px;
+  color:#f4f3ef;background:#101114;
+  border:1px solid #393a3e;border-radius:0;
+}
+.order-box input:focus,.order-box textarea:focus{border-color:var(--gold);outline:none}
+.order-box input[readonly]{color:#aaa;background:#17181b}
+.order-box textarea{min-height:82px;resize:vertical}
+.order-box form .btn{width:100%;margin-top:17px}
+.notice{font-size:10px;margin-top:9px}
+
+/* Footer */
+footer{
+  text-align:center;padding:30px 15px;
+  border-top:1px solid #ffffff15;
+  background:#08090b;color:#85868b;font-size:11px;
+}
+footer strong{font:23px Georgia,serif;letter-spacing:4px;color:var(--silver)}
+footer p{font-size:10px;margin-top:5px}
+
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;text-align:center;padding:48px 7%;gap:28px}
+  .hero-text{margin:auto}
+  .hero-text p{margin-left:auto;margin-right:auto}
+  .hero-visual{width:100%;max-width:430px;margin:auto}
+  .search-area{max-width:100%;margin:0 auto}
+  .hero-visual .bottle-art{max-width:275px}
+  .hero-luxury-image{max-width:100%;margin-top:8px}
+
+  .content{padding:45px 6%}
+  .detail-layout{grid-template-columns:1fr;gap:20px}
+  .detail-image{max-width:480px;width:100%;margin:auto}
+  .detail-image .bottle-art{max-width:320px}
+  .detail-copy{padding:5px}
+  .products{grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+  .product{padding:14px 10px}
+  .product-art{min-height:190px}
+  .product-art .bottle-art{max-width:180px}
+}
+@media(max-width:430px){
+  .topbar{height:66px;padding:0 15px;gap:13px}
+  .logo{font-size:23px}
+  .topbar-tagline{font-size:7px;letter-spacing:1px}
+  h1{font-size:47px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+</style>
 </head>
+
 <body>
-<header>
-  <div class="logo">ZAERON</div>
-  <nav>
-    <a href="#home">HOME</a>
-    <a href="#collection">COLLECTION</a>
-    <a href="#story">OUR STORY</a>
-    <a href="#order">ORDER</a>
-  </nav>
+
+<header class="topbar">
+  <button class="menu-toggle" id="menuToggle" type="button"
+    aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="logo" id="headerLogo">Z<span>A</span>ERON</div>
+  <div class="topbar-tagline">A SIGNATURE OF YOUR OWN</div>
 </header>
 
+<div class="scrim" id="scrim"></div>
+
+<aside class="sidebar" id="sidebar" aria-hidden="true" aria-label="Main navigation">
+  <div class="sidebar-head">
+    <div class="logo" id="sidebarLogo">Z<span>A</span>ERON</div>
+    <button class="close-menu" id="closeMenu" type="button" aria-label="Close menu">×</button>
+  </div>
+  <nav>
+    <a href="#home" id="navHome" class="selected">HOME</a>
+    <a href="#collection" id="navCollection">COLLECTION</a>
+  </nav>
+  <div class="sidebar-note"><strong>ZAERON</strong>REFINED. DISTINCTIVE. YOURS.</div>
+</aside>
+
 <main>
-<section class="hero" id="home">
-  <div class="hero-text">
-    <div class="eyebrow">THE ART OF PERSONALITY</div>
-    <h1>Leave a<br><span>Signature.</span></h1>
-    <p>Discover a fragrance that speaks before you do. Refined scents, timeless character, and unmistakable presence.</p>
-    <a class="btn" href="#collection">DISCOVER AURA</a>
-  </div>
-  <div class="bottle">
-    <div class="bottle-label">
-      <strong>ZAERON</strong>
-      <small>AURA</small><br><br>
-      <small>EAU DE PARFUM</small>
+  <!-- HOME PAGE -->
+  <section id="home" class="page active">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="eyebrow">THE ART OF FRAGRANCE</div>
+        <h1>Make Your<br><span>Presence</span><br>Unforgettable.</h1>
+        <p>A distinctive fragrance. A lasting impression. Discover a refined scent that expresses your confidence and personal style.</p>
+        <button class="btn" id="exploreButton" type="button">EXPLORE COLLECTION</button>
+      </div>
+
+      <div class="hero-visual">
+        <div class="search-area">
+          <label for="homeSearch">DISCOVER YOUR SIGNATURE SCENT</label>
+          <div class="search-box">
+            <input id="homeSearch" type="search" placeholder="Search AURA or NIOR LEGACY..." autocomplete="off">
+            <button id="searchButton" type="button" aria-label="Search products" title="Search">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                <path d="m16 16 5 5"></path>
+              </svg>
+            </button>
+          </div>
+          <p class="search-hint">Search a fragrance to open its dedicated page.</p>
+          <p id="searchMessage" role="status" style="font-size:11px;margin-top:6px"></p>
+        </div>
+        <img class="hero-luxury-image" src="zaeron-luxury.png" alt="ZAERON AURA and NIOR luxury perfume collection" loading="eager">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="collection">
-  <div class="eyebrow">THE COLLECTION</div>
-  <h2>Find Your <span>Signature</span></h2>
-  <p>Made for those who never need to announce their presence.</p>
-  <div class="products">
-    <article class="product">
-      <div class="bottle"><div class="bottle-label"><strong>ZAERON</strong><small>AURA</small></div></div>
-      <h3>AURA</h3>
-      <p>Dark oud, warm amber and rich woody notes. A bold, memorable character.</p>
-      <a class="btn" href="#order">ENQUIRE NOW</a>
-    </article>
-    <article class="product">
-      <div class="bottle"><div class="bottle-label"><strong>ZAERON</strong><small>NIOR</small></div></div>
-      <h3>NIOR LEGACY</h3>
-      <p>A future signature fragrance. Coming soon.</p>
-      <a class="btn" href="#order">GET UPDATES</a>
-    </article>
-  </div>
-</section>
+  <!-- COLLECTION PAGE -->
+  <section id="collection" class="page">
+    <div class="content">
+      <div class="eyebrow">THE ZAERON COLLECTION</div>
+      <h2>Discover Your <span>Signature</span></h2>
+      <p class="section-intro">Two distinct expressions of the ZAERON vision. Discover the fragrance that speaks to your style.</p>
+      <div id="collectionProducts" class="products"></div>
+    </div>
+  </section>
 
-<section class="story" id="story">
-  <div class="eyebrow">THE ZAERON STANDARD</div>
-  <h2>Unmistakably <span>Yours.</span></h2>
-  <p>ZAERON is built around individuality, confidence and understated luxury. Every scent is an opportunity to make a lasting impression. Your presence. Your identity. Your signature.</p>
-</section>
+  <!-- SEPARATE PRODUCT PAGE -->
+  <section id="productPage" class="page">
+    <div class="content">
+      <div class="detail-wrap">
+        <button class="btn btn-outline back-btn" id="backButton" type="button">← BACK</button>
 
-<section id="order">
-  <div class="eyebrow">YOUR SIGNATURE STARTS HERE</div>
-  <h2>Order <span>Enquiry</span></h2>
-  <p>Send your details through WhatsApp to enquire about availability and pricing.</p>
-  <form id="orderForm">
-    <label for="name">YOUR NAME</label>
-    <input id="name" required placeholder="Enter your name">
-    <label for="phone">PHONE NUMBER</label>
-    <input id="phone" required placeholder="03XXXXXXXXX">
-    <label for="product">FRAGRANCE</label>
-    <select id="product">
-      <option>AURA</option>
-      <option>NIOR LEGACY — Coming Soon</option>
-    </select>
-    <label for="quantity">QUANTITY</label>
-    <select id="quantity">
-      <option>1 bottle</option>
-      <option>2 bottles</option>
-      <option>3 bottles</option>
-      <option>4+ bottles</option>
-    </select>
-    <label for="address">DELIVERY ADDRESS / MESSAGE</label>
-    <textarea id="address" placeholder="Your city and delivery address"></textarea>
-    <button class="btn" type="submit">CONTINUE ON WHATSAPP</button>
-  </form>
-</section>
+        <div class="detail-layout">
+          <div class="detail-image" id="detailImage">
+            <div id="detailBottle"></div>
+          </div>
+
+          <div class="detail-copy">
+            <div class="eyebrow">THE ZAERON EXPERIENCE</div>
+            <h2 id="detailName">AURA</h2>
+            <div class="price-note" id="detailStatus"></div>
+            <div class="detail-price" id="detailPrice"></div>
+            <p class="description" id="detailDescription"></p>
+
+            <div class="notes">
+              <p><strong>FRAGRANCE PROFILE</strong></p>
+              <p id="detailNotes"></p>
+              <p style="margin-top:13px"><strong>THE INSPIRATION</strong></p>
+              <p id="detailAudience"></p>
+            </div>
+
+            <p class="detail-extra" id="detailExtra"></p>
+
+            <div class="order-box" id="orderBox">
+              <h3>Place an Enquiry</h3>
+              <p>Complete the form to continue through WhatsApp.</p>
+
+              <form id="orderForm">
+                <label class="form-label" for="customerName">FULL NAME</label>
+                <input id="customerName" name="name" required maxlength="100" autocomplete="name" placeholder="Your full name">
+
+                <label class="form-label" for="customerPhone">PHONE NUMBER</label>
+                <input id="customerPhone" name="phone" type="tel" required maxlength="20" autocomplete="tel" placeholder="Your phone number">
+
+                <label class="form-label" for="product">PRODUCT</label>
+                <input id="product" name="product" readonly>
+
+                <label class="form-label" for="quantity">QUANTITY</label>
+                <input id="quantity" name="quantity" type="number" min="1" max="10000" step="1" required value="1" inputmode="numeric">
+
+                <label class="form-label" for="address">DELIVERY ADDRESS</label>
+                <textarea id="address" name="address" required maxlength="500" autocomplete="street-address" placeholder="City and complete delivery address"></textarea>
+
+                <div class="detail-price" id="orderTotal">Total: 1,799/- PKR</div>
+                <button class="btn" type="submit">CONTINUE TO WHATSAPP</button>
+                <p class="notice">Delivery charges, if any, will be confirmed separately.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <strong>ZAERON</strong>
-  <p>UNMISTAKABLY YOURS.</p>
+  <p>REFINED. DISTINCTIVE. YOURS.</p>
   <p>© 2026 ZAERON. All rights reserved.</p>
 </footer>
 
 <script>
-  // Replace this with your WhatsApp number including country code.
-  // Example: 923001234567 — no + sign, spaces, or leading 0.
-  const WHATSAPP_NUMBER = "923412454350";
+"use strict";
 
-  document.getElementById("orderForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+// WhatsApp number in international format, digits only.
+const WHATSAPP_NUMBER = "923412454350";
+const PRICE_PKR = 1799;
 
-    if (WHATSAPP_NUMBER.includes("X")) {
-      alert("Please add your WhatsApp number in the website code first.");
+const products = [
+  {
+    id:"aura",
+    name:"AURA",
+    status:"SIGNATURE FRAGRANCE",
+    description:"A refined, warm fragrance created for confidence and understated sophistication.",
+    notes:"Warm woody character with oud and amber-inspired notes.",
+    inspiration:"For those who appreciate a distinctive scent for evenings and special occasions.",
+    extra:"Make AURA your signature. Bold, composed and memorable.",
+    price:PRICE_PKR,
+    available:true
+  },
+  {
+    id:"nior",
+    name:"NIOR LEGACY",
+    status:"COMING SOON",
+    description:"A new chapter in the ZAERON vision, inspired by modern elegance and quiet confidence.",
+    notes:"The fragrance profile will be announced at launch.",
+    inspiration:"Created for fragrance enthusiasts who enjoy discovering something new.",
+    extra:"NIOR LEGACY is coming soon and is not yet available to order.",
+    price:PRICE_PKR,
+    available:false
+  }
+];
+
+let currentProduct = products[0];
+let previousPage = "home";
+const $ = id => document.getElementById(id);
+
+function formatPrice(amount){
+  return amount.toLocaleString("en-PK") + "/- PKR";
+}
+
+/* Draw the bottles directly with SVG. No external image file is needed. */
+function bottleSVG(productId, uniqueId){
+  const nior = productId === "nior";
+  const name = nior ? "NIOR" : "AURA";
+  const accent = nior ? "#c9a45c" : "#d9dce1";
+  const glassId = "glass-" + uniqueId;
+  const metalId = "metal-" + uniqueId;
+  const labelId = "label-" + uniqueId;
+
+  return `
+  <svg class="bottle-art" viewBox="0 0 320 370" role="img"
+       aria-label="ZAERON ${nior ? "NIOR LEGACY" : "AURA"} perfume bottle"
+       xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="${glassId}" x1="0" x2="1">
+        <stop offset="0%" stop-color="#050505"/>
+        <stop offset="25%" stop-color="${nior ? "#37332b" : "#303136"}"/>
+        <stop offset="50%" stop-color="#101114"/>
+        <stop offset="75%" stop-color="${nior ? "#28251f" : "#292a2f"}"/>
+        <stop offset="100%" stop-color="#050505"/>
+      </linearGradient>
+      <linearGradient id="${metalId}" x1="0" x2="1">
+        <stop offset="0%" stop-color="${nior ? "#765b2e" : "#62666d"}"/>
+        <stop offset="30%" stop-color="${nior ? "#ead29b" : "#f2f3f5"}"/>
+        <stop offset="55%" stop-color="${nior ? "#9d7b40" : "#a5a9b0"}"/>
+        <stop offset="80%" stop-color="${nior ? "#e2c37f" : "#e6e7ea"}"/>
+        <stop offset="100%" stop-color="${nior ? "#6b5128" : "#656970"}"/>
+      </linearGradient>
+      <linearGradient id="${labelId}" x1="0" x2="1">
+        <stop offset="0%" stop-color="#08090b"/>
+        <stop offset="50%" stop-color="${nior ? "#1a1813" : "#151619"}"/>
+        <stop offset="100%" stop-color="#08090b"/>
+      </linearGradient>
+    </defs>
+
+    <ellipse cx="160" cy="329" rx="90" ry="10" fill="${accent}" opacity=".18"/>
+    <rect x="135" y="34" width="50" height="49" rx="4"
+          fill="url(#${metalId})" stroke="${accent}" stroke-width=".7"/>
+    <rect x="129" y="78" width="62" height="16" rx="3"
+          fill="#17181b" stroke="${accent}" stroke-width="1"/>
+
+    <rect x="70" y="91" width="180" height="224" rx="20"
+          fill="url(#${glassId})" stroke="${accent}" stroke-opacity=".7" stroke-width="1.5"/>
+
+    <path d="M87 111 Q87 99 99 99 L104 99 L104 298 Q87 298 87 282 Z"
+          fill="#fff" opacity=".06"/>
+    <path d="M232 112 L240 112 L240 280 Q240 294 231 300 Z"
+          fill="${accent}" opacity=".09"/>
+
+    <rect x="88" y="144" width="144" height="123"
+          fill="url(#${labelId})" stroke="${accent}" stroke-width="1.1"/>
+    <line x1="103" y1="157" x2="217" y2="157" stroke="${accent}" stroke-width=".7"/>
+
+    <text x="160" y="191" text-anchor="middle" fill="${accent}"
+          font-family="Georgia,serif" font-size="20" letter-spacing="3">ZAERON</text>
+    <line x1="112" y1="205" x2="208" y2="205" stroke="${accent}" stroke-width=".6"/>
+    <text x="160" y="232" text-anchor="middle" fill="${accent}"
+          font-family="Georgia,serif" font-size="${nior ? "15" : "19"}"
+          letter-spacing="${nior ? "2" : "5"}">${name}</text>
+    <text x="160" y="250" text-anchor="middle" fill="#aeb0b5"
+          font-family="Arial,sans-serif" font-size="6.5" letter-spacing="2">EAU DE PARFUM</text>
+    <path d="M90 309 Q160 322 230 309" fill="none" stroke="${accent}" stroke-width="1"/>
+  </svg>`;
+}
+
+function productCard(p){
+  return `
+    <article class="product">
+      <div class="product-art">${bottleSVG(p.id,"card-"+p.id)}</div>
+      <h3>${p.name}</h3>
+      ${p.available ? "" : '<span class="coming-label">COMING SOON</span>'}
+      <div class="price">${formatPrice(p.price)}</div>
+      <p>${p.available
+        ? "A refined scent with a distinctive character."
+        : "A new chapter of ZAERON is on its way."}</p>
+      <button class="btn" type="button" data-product-id="${p.id}">
+        ${p.available ? "VIEW PRODUCT" : "VIEW DETAILS"}
+      </button>
+    </article>`;
+}
+
+function renderCollection(){
+  $("collectionProducts").innerHTML = products.map(productCard).join("");
+}
+
+function closeMenu(){
+  $("sidebar").classList.remove("open");
+  $("scrim").classList.remove("visible");
+  $("sidebar").setAttribute("aria-hidden","true");
+  $("menuToggle").setAttribute("aria-expanded","false");
+}
+
+function toggleMenu(force){
+  const open = typeof force === "boolean"
+    ? force
+    : !$("sidebar").classList.contains("open");
+
+  $("sidebar").classList.toggle("open",open);
+  $("scrim").classList.toggle("visible",open);
+  $("sidebar").setAttribute("aria-hidden",String(!open));
+  $("menuToggle").setAttribute("aria-expanded",String(open));
+}
+
+function displayPage(pageId){
+  document.querySelectorAll(".page").forEach(page=>{
+    page.classList.remove("active");
+  });
+  $(pageId).classList.add("active");
+
+  $("navHome").classList.toggle("selected",pageId==="home");
+  $("navCollection").classList.toggle("selected",pageId==="collection");
+
+  closeMenu();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/*
+  Product pages use a URL hash, so browser Back works
+  and each product has its own shareable address.
+*/
+function goToPage(pageId, pushHistory = true){
+  if(pageId==="productPage" && !currentProduct) return;
+
+  if(pushHistory){
+    const hash = pageId==="productPage"
+      ? "#product-"+currentProduct.id
+      : "#"+(pageId==="collection" ? "collection" : "home");
+
+    if(location.hash!==hash){
+      history.pushState({pageId:pageId,productId:currentProduct.id}, "", hash);
+    }
+  }
+
+  displayPage(pageId);
+}
+
+function openProduct(id, pushHistory = true){
+  const p = products.find(item=>item.id===id);
+  if(!p) return;
+
+  currentProduct = p;
+
+  $("detailBottle").innerHTML = bottleSVG(p.id,"detail-"+p.id);
+  $("detailImage").classList.toggle("nior-bg",p.id==="nior");
+  $("detailName").textContent = p.name;
+  $("detailStatus").textContent = p.status;
+  $("detailPrice").textContent = p.available
+    ? formatPrice(p.price)
+    : "Expected price: "+formatPrice(p.price);
+  $("detailDescription").textContent = p.description;
+  $("detailNotes").textContent = p.notes;
+  $("detailAudience").textContent = p.inspiration;
+  $("detailExtra").textContent = p.extra;
+  $("product").value = p.name;
+  $("quantity").value = "1";
+  $("orderBox").style.display = p.available ? "block" : "none";
+  updateOrderTotal();
+
+  goToPage("productPage",pushHistory);
+}
+
+function searchProducts(){
+  const query = $("homeSearch").value.trim().toLowerCase();
+  $("searchMessage").textContent = "";
+
+  if(!query){
+    $("homeSearch").focus();
+    $("searchMessage").textContent = "Please enter a fragrance name.";
+    return;
+  }
+
+  const match = products.find(p=>p.name.toLowerCase().includes(query));
+
+  if(match){
+    previousPage = "home";
+    openProduct(match.id,true);
+  }else{
+    $("searchMessage").textContent =
+      "No matching product found. Try AURA or NIOR LEGACY.";
+  }
+}
+
+function updateOrderTotal(){
+  const quantity = Number($("quantity").value);
+  if(Number.isSafeInteger(quantity) && quantity>=1 && quantity<=10000){
+    $("orderTotal").textContent =
+      "Total: "+formatPrice(currentProduct.price*quantity);
+  }else{
+    $("orderTotal").textContent = "Enter a valid quantity";
+  }
+}
+
+/* Navigation events */
+$("menuToggle").addEventListener("click",()=>toggleMenu());
+$("closeMenu").addEventListener("click",closeMenu);
+$("scrim").addEventListener("click",closeMenu);
+$("headerLogo").addEventListener("click",()=>goToPage("home"));
+$("sidebarLogo").addEventListener("click",()=>goToPage("home"));
+
+$("navHome").addEventListener("click",event=>{
+  event.preventDefault();
+  goToPage("home");
+});
+$("navCollection").addEventListener("click",event=>{
+  event.preventDefault();
+  goToPage("collection");
+});
+$("exploreButton").addEventListener("click",()=>goToPage("collection"));
+$("backButton").addEventListener("click",()=>{
+  if(history.state && history.state.pageId){
+    history.back();
+  }else{
+    goToPage(previousPage || "collection");
+  }
+});
+
+/* Search events */
+$("searchButton").addEventListener("click",searchProducts);
+$("homeSearch").addEventListener("keydown",event=>{
+  if(event.key==="Enter"){
+    event.preventDefault();
+    searchProducts();
+  }
+});
+
+/* Collection cards */
+document.addEventListener("click",event=>{
+  const button = event.target.closest("[data-product-id]");
+  if(button) openProduct(button.dataset.productId,true);
+});
+
+/* Escape closes the sidebar */
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape") closeMenu();
+});
+
+/* Update the total when quantity changes */
+$("quantity").addEventListener("input",updateOrderTotal);
+
+/* Handle browser Back and Forward */
+function syncPageFromHash(){
+  const hash = location.hash.toLowerCase();
+
+  if(hash.startsWith("#product-")){
+    const id = hash.replace("#product-","");
+    const p = products.find(item=>item.id===id);
+    if(p){
+      openProduct(p.id,false);
       return;
     }
+  }
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const product = document.getElementById("product").value;
-    const quantity = document.getElementById("quantity").value;
-    const address = document.getElementById("address").value.trim();
+  if(hash==="#collection"){
+    displayPage("collection");
+  }else{
+    displayPage("home");
+  }
+}
+window.addEventListener("popstate",syncPageFromHash);
 
-    const message =
-      "ZAERON ORDER ENQUIRY%0A" +
-      "Name: " + encodeURIComponent(name) + "%0A" +
-      "Phone: " + encodeURIComponent(phone) + "%0A" +
-      "Fragrance: " + encodeURIComponent(product) + "%0A" +
-      "Quantity: " + encodeURIComponent(quantity) + "%0A" +
-      "Address/Message: " + encodeURIComponent(address);
+/* WhatsApp order form */
+$("orderForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  if(!currentProduct.available) return;
 
-    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message, "_blank");
-  });
+  if(!/^\d{10,15}$/.test(WHATSAPP_NUMBER)){
+    alert("Please check the WhatsApp number in the website code.");
+    return;
+  }
+
+  const name = $("customerName").value.trim();
+  const phone = $("customerPhone").value.trim();
+  const quantity = Number($("quantity").value);
+  const address = $("address").value.trim();
+
+  if(!Number.isSafeInteger(quantity)||quantity<1||quantity>10000){
+    alert("Please enter a whole number between 1 and 10,000.");
+    $("quantity").focus();
+    return;
+  }
+
+  const total = currentProduct.price*quantity;
+  const message = [
+    "ZAERON ORDER ENQUIRY",
+    "",
+    "Name: "+name,
+    "Phone: "+phone,
+    "Product: "+currentProduct.name,
+    "Price per bottle: "+formatPrice(currentProduct.price),
+    "Quantity: "+quantity,
+    "Estimated product total: "+formatPrice(total),
+    "Delivery address: "+address,
+    "",
+    "Please confirm availability, delivery charges and the final total."
+  ].join("\n");
+
+  const url = "https://wa.me/"+WHATSAPP_NUMBER+
+    "?text="+encodeURIComponent(message);
+
+  const newTab = window.open(url,"_blank");
+  if(!newTab) window.location.href = url;
+});
+
+/* Initial artwork and page */
+// Homepage hero uses the premium ZAERON campaign image.
+renderCollection();
+
+if(location.hash){
+  syncPageFromHash();
+}
 </script>
 </body>
 </html>
